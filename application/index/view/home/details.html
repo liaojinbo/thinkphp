@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://localhost/tp5/public/static/home/css/style.css">
+</head>
+
+<body>
+    <header id="header">
+
+        <div class="center">
+            <h1 class="logo">山河旅行社</h1>
+            <nav class="link">
+                <h2 style="display:none;">网站导航</h2>
+                <ul>
+                    {volist name="navData" id="value"}
+                    {if $value.id==1}
+                    <li class="active"><a href="http://localhost/tp5/public/index.php/index/home/list/navId/{$value.id}"
+                            class="xs-hidden">{$value.column_name}</a></li>
+                    {else}
+                    <li><a href="http://localhost/tp5/public/index.php/index/home/list/navId/{$value.id}"
+                            class="xs-hidden">{$value.column_name}</a></li>
+                    {/if}
+                    {/volist}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="mp-description">
+        <div class="mp-description-slider">
+            <div class="mp-description-image">
+                <img src="http://localhost/tp5/public/uploads/{$row.img}" alt="">
+            </div>
+        </div>
+        <div class="mp-description-detail">
+            <div class="mp-description-name">
+                【{$row.title}】{$row.remark}
+            </div>
+            <div class="mp-description-comments">
+                <span class="mp-description-sale">已售：2258</span>
+                <span class="mp-description-title">满意度:</span>
+                <span id="mp-description-commentscore">{$row.degree}<span><span></span>
+            </div>
+            <div class="mp-description-recommend">
+                <div class="mp-description-recommendtag">推荐理由</div>
+                <div class="mp-recommend-outter">
+                  <div class="mp-recommend-inner">
+                   {$row.content}
+                  </div>
+                </div>
+              </div>
+              <div class="mp-description-price">
+                <span class="mp-description-qunar-price"><em>¥{$row.price}</em>起</span>
+                
+                <a href="" hidefocus="true" class="mp-description-bookingbtn">立刻预订</a>
+              </div>
+        </div>
+    </div>
+</body>
+
+</html>

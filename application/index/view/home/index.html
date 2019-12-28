@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>山河旅行社</title>
+    <link rel="stylesheet" href="http://localhost/tp5/public/static/home/css/style.css">
+</head>
+
+<body>
+    <header id="header">
+
+        <div class="center">
+            <h1 class="logo">山河旅行社</h1>
+            <nav class="link">
+                <h2 style="display:none;">网站导航</h2>
+                <ul>
+                    {volist name="navData" id="value"}
+                    {if $value.id==1}
+                    <li class="active"><a href="http://localhost/tp5/public/index.php/index/home/list/navId/{$value.id}"
+                            class="xs-hidden">{$value.column_name}</a></li>
+                    {else}
+                    <li><a href="http://localhost/tp5/public/index.php/index/home/list/navId/{$value.id}"
+                            class="xs-hidden">{$value.column_name}</a></li>
+                    {/if}
+                    {/volist}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="adver">
+        <img src="http://localhost/tp5/public/static/home/img/adver.jpg" alt="">
+        <div class="center"></div>
+        <div class="center copy">
+            <form action="http://localhost/tp5/public/index.php/index/home/index" method="post">
+                <input type="text" class="search" name="search" placeholder="请输入旅游景点或城市">
+                <button class="button" type="submit">搜索</button>
+            </form>
+        </div>
+    </div>
+    <div id="tour">
+        <section class="center ">
+            <h2>热门旅游</h2>
+            <p>国内旅游，国外旅游、自助旅游、自驾旅游、游轮签证、主题旅游等各种最新热门旅游推介</p>
+        </section>
+        {volist name="data" id="value"}
+        <figure>
+            <a href="http://localhost/tp5/public/index.php/index/home/details/id/{$value.id}">
+                <img src="http://localhost/tp5/public/uploads/{$value.img}" alt="">
+                <figcaption>
+                    <div class="tour_title">
+                        <strong>&lt;{$value.title}&gt;</strong> {$value.remark}
+                    </div>
+                    <div class="info">
+                        <em class="sat">满意度{$value.degree}</em>
+                        <span class="price"> ￥<strong> {$value.price}</strong> 起</span>
+                    </div>
+                    <div class="type">国内长线</div>
+                </figcaption>
+            </a>
+
+        </figure>
+        {/volist}
+    </div>
+    <footer id="footer">
+        <div class="top sm-hidden">
+            <div class="block left">
+                <h2>合作伙伴</h2>
+                <hr>
+                <ul class="ul">
+                    <li>途牛旅游网</li>
+                    <li>驴妈妈旅游网</li>
+                    <li>携程旅游</li>
+                    <li>中国青年旅社</li>
+                </ul>
+            </div>
+
+            <div class="block center">
+                <h2>旅游FAQ</h2>
+                <hr>
+                <ul class="ul">
+                    <li>旅游合同签订方式？</li>
+                    <li>儿童价是基于什么制定的？</li>
+                    <li>旅游的线路品质是怎么界定的？</li>
+                    <li>旅游保险有些什么种类？</li>
+                </ul>
+            </div>
+            <div class="block right">
+                <h2>联系方式</h2>
+                <hr>
+                <ul class="ul">
+                    <li>微博：weibo.com/maodo</li>
+                    <li>邮件：sh@maodou.com</li>
+                    <li>地址：西安市雁塔区123号</li>
+                </ul>
+            </div>
+        </div>
+        <div class="chearfix"></div>
+        <div class="version sm-visible">
+            客户端 | 触屏版 | 电脑版
+        </div>
+        <div class="bottom">Copyright © SHMD 山河旅行社| 陕ICP 备120110119 号<span class="sm-hidden">|
+                旅行社经营许可证：L-SH-BK12345</span></div>
+    </footer>
+
+</body>
+
+</html>
